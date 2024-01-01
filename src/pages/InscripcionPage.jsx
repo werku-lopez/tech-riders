@@ -36,7 +36,7 @@ export default class InscripcionPage extends Component{
 
     peticionAltaUser=(e)=>{
         e.preventDefault()
-        var idUsuario = 10  //eL ID se Autoincrementa solo? 
+        var idUsuario = 0  //eL ID se Autoincrementa solo? 
         var nombre = this.cajaNombre.current.value
         var apellidos = this.cajaApellidos.current.value
         var email = this.cajaEmail.current.value
@@ -55,7 +55,7 @@ export default class InscripcionPage extends Component{
             apellidos:apellidos,
             email:email,
             telefono:telefono,
-            linkedin:linkedin,
+            linkedIn:linkedin,
             password:password,
             idRole:idRole,
             idProvincia:idProvincia,
@@ -65,12 +65,12 @@ export default class InscripcionPage extends Component{
 
         console.log(newTechRider)
 
-        var request = ""  
+        var request = "api/usuarios"  
         var api = "https://apitechriders.azurewebsites.net/" 
         var url = api + request
         console.log(url)
         axios.post(url,newTechRider).then(response=>{
-           
+           console.log(response)
         })
     }
     render(){
