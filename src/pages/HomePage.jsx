@@ -61,6 +61,65 @@ export default class HomePage extends Component {
           <div class="container px-5 gap-24 mx-auto">
             <div class="flex flex-wrap w-full mb-12 flex-col items-center text-center">
               <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
+                ¿Quién eres?
+              </h1>
+            </div>
+            <div class="flex flex-wrap justify-center -m-4 mb-6">
+              <div class="xl:w-1/3 md:w-1/2  p-4">
+                <div class="service-card   cursor-pointer snap-start shrink-0 py-6 px-6 bg-white flex flex-col gap-8 items-between transition-all duration-300 rounded shadow-sm shadow-[#00000050] group hover:bg-primary-500">
+                  <div class="flex gap-2 flex-col">
+                    <h3 class="font-bold text-2xl group-hover:text-white text-black/80">
+                      Particular
+                    </h3>
+                    <p class="text-gray-800 group-hover:text-white text-sm">
+                      Si eres un/a profesional de la tecnología y quieres
+                      impartir una charla técnica o motivacional en un centro
+                      educativo.
+                    </p>
+                  </div>
+                  <p class="text-5xl font-bold self-end text-primary-500 group-hover:text-primary-600">
+                    1
+                  </p>
+                </div>
+              </div>
+              <div class="xl:w-1/3 md:w-1/2  p-4">
+                <div class="service-card   cursor-pointer snap-start shrink-0 py-6 px-6 bg-white flex flex-col gap-8 items-between transition-all duration-300 rounded shadow-sm shadow-[#00000050] group hover:bg-primary-500">
+                  <div class="flex gap-2 flex-col">
+                    <h3 class="font-bold text-2xl group-hover:text-white text-black/80">
+                      Empresa
+                    </h3>
+                    <p class="text-gray-800 group-hover:text-white text-sm">
+                    Si sois una empresa tecnológica y queréis impartir una charla técnica o motivacional en un centro educativo o de formación.
+                    </p>
+                  </div>
+                  <p class="text-5xl font-bold self-end text-primary-500 group-hover:text-primary-600">
+                    2
+                  </p>
+                </div>
+              </div>
+              <div class="xl:w-1/3 md:w-1/2  p-4">
+                <div class="service-card   cursor-pointer snap-start shrink-0 py-6 px-6 bg-white flex flex-col gap-8 items-between transition-all duration-300 rounded shadow-sm shadow-[#00000050] group hover:bg-primary-500">
+                  <div class="flex gap-2 flex-col">
+                    <h3 class="font-bold text-2xl group-hover:text-white text-black/80">
+                      Centro formador
+                    </h3>
+                    <p class="text-gray-800 group-hover:text-white text-sm">
+                    Si eres un centro de formación y quieres solicitar una charla técnica, motivacional o softskills para tus estudiantes de la rama de tecnología.
+                    </p>
+                  </div>
+                  <p class="text-5xl font-bold self-end text-primary-500 group-hover:text-primary-600">
+                    3
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="text-gray-600 body-font">
+          <div class="container px-5 gap-24 mx-auto">
+            <div class="flex flex-wrap w-full mb-12 flex-col items-center text-center">
+              <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
                 Charlas
               </h1>
               <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">
