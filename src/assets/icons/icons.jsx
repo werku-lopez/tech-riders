@@ -28,6 +28,34 @@ export const User = ({
     ></path>{" "}
   </svg>
 );
+export const LinkedIn = ({
+  size = 24,
+  color = "currentColor",
+  className = "",
+  ...props
+}) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 100 100"
+    fill="#0A66C2"  
+    stroke={color}
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={`${className}`}
+    {...props}
+  >
+    <path
+      d="M92.86,0H7.12A7.17,7.17,0,0,0,0,7.21V92.79A7.17,7.17,0,0,0,7.12,100H92.86A7.19,7.19,0,0,0,100,92.79V7.21A7.19,7.19,0,0,0,92.86,0ZM30.22,85.71H15.4V38H30.25V85.71ZM22.81,31.47a8.59,8.59,0,1,1,8.6-8.59A8.6,8.6,0,0,1,22.81,31.47Zm63,54.24H71V62.5c0-5.54-.11-12.66-7.7-12.66s-8.91,6-8.91,12.26V85.71H39.53V38H53.75v6.52H54c2-3.75,6.83-7.7,14-7.7,15,0,17.79,9.89,17.79,22.74Z"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      
+    ></path>{" "}
+  </svg>
+ );
 export const Bookmark = ({
   size = 24,
   color = "currentColor",
@@ -133,6 +161,38 @@ export const Presencial = ({
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
+    ></path>{" "}
+  </svg>
+);
+export const X = ({
+  size = 24,
+  color = "currentColor",
+  className = "",
+  ...props
+}) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 48 48"
+    fill="none"
+    stroke={color}
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={`${className}`}
+    {...props}
+  >
+    <polygon fill="#616161" points="41,6 9.929,42 6.215,42 37.287,6"></polygon>
+    <polygon
+      fill="#fff"
+      fill-rule="evenodd"
+      points="31.143,41 7.82,7 16.777,7 40.1,41"
+      clip-rule="evenodd"
+    ></polygon>
+    <path
+      fill="#616161"
+      d="M15.724,9l20.578,30h-4.106L11.618,9H15.724 M17.304,6H5.922l24.694,36h11.382L17.304,6L17.304,6z"
     ></path>{" "}
   </svg>
 );
