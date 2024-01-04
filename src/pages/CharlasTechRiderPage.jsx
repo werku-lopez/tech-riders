@@ -10,7 +10,7 @@ export default class CharlasTechRiderPage extends Component{
     //FUNCIONA TODO PERO LE FALTA EL TOKEN PARA QUE HAGA EL METODO 
     loadCharlasTechRider=()=>{
         var idTechRider = this.props.idtechrider
-         var request = "api/QueryTools/CharlasTechRider/" +idTechRider;
+         var request = "api/QueryTools/CharlasTechRider?idtechrider=" +idTechRider;
         var api = "https://apitechriders.azurewebsites.net/" 
         var url = api + request
         console.log(url)
