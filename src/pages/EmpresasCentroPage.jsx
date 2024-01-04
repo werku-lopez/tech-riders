@@ -9,6 +9,7 @@ export default class EmpresasCentro extends Component {
     tipoEmpresas: [],
     statusProvincia: false,
     statusTipoEmpresas: false,
+    token: {},
   };
 
   inputTextNombre = React.createRef();
@@ -46,12 +47,12 @@ export default class EmpresasCentro extends Component {
   insertarEmpresasCentro = (e) => {
     e.preventDefault();
 
-    var request = "api/usuarios";
+    var request = "api/empresascentros";
     var url = this.state.url + request;
 
     var nombre = this.inputTextNombre.current.value;
     var direccion = this.inputTextDireccion.current.value;
-    var telefono = parseInt(this.inputTextTelefono.current.value);
+    var telefono = this.inputTextTelefono.current.value;
     var personaContacto = this.inputTextPersonaContacto.current.value;
     var cif = this.inputTextCif.current.value;
     var idProvincia = parseInt(this.inputTextProvincia.current.value);
@@ -69,7 +70,7 @@ export default class EmpresasCentro extends Component {
       alert("Debes rellenar todos los campos");
     } else {
       var dataJSON = {
-        idEmpresaCentro: 0,
+        idEmpresaCentro: null,
         nombre: nombre,
         direccion: direccion,
         telefono: telefono,
@@ -81,9 +82,16 @@ export default class EmpresasCentro extends Component {
       };
       console.log(dataJSON);
 
-      axios.post(url, dataJSON).then((response) => {
-      console.log("Se ha añadido empresa / centro ", response);
-    });
+      var config = {
+        headers: {
+          Authorization: `Bearer ${this.state.token}`,
+          "Content-Type": "application/json",
+        },
+      };
+
+      axios.post(url, dataJSON, config).then((response) => {
+        console.log("Se ha añadido empresa / centro ", response);
+      });
     }
   };
 

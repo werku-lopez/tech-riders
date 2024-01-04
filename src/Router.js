@@ -9,6 +9,7 @@ import CentroLayoutPage from './pages/CentroLayoutPage';
 import TodasCharlasPage from './pages/TodasCharlasPage';
 import InscripcionPage from './pages/InscripcionPage';
 import CharlasTechRiderPage from './pages/CharlasTechRiderPage';
+import SolicitarCharlas from './pages/SolicitarCharlas';
 
 const AppRouter = () => {
   function CharlasTechRiderElement() {
@@ -26,6 +27,9 @@ const AppRouter = () => {
       <Route path="/todascharlas" element={<TodasCharlasPage />} />
       <Route path="/inscripcion" element={<InscripcionPage />} />
       <Route path='/charlastechrider/:idtechrider' element={<CharlasTechRiderElement />} />
+      <Route path="/inscripcion/empresacentro" element={<EmpresasCentro />} />
+      <Route path="/centrolayoutpage/*" element={<CentroLayoutPage />}/>
+      <Route path="/solicitudCharla" element={<SolicitarCharlas />} />
     </Routes>
   </LayoutComponent>
 </Router>
