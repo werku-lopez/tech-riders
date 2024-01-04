@@ -127,7 +127,6 @@ export default class InscripcionPage extends Component{
             </select>
         </div>
 
-         {/* FALTA  COMO HACER LO DE IDEmpresaCentro y estado */}
         <h5>El admin revisara su solicitud y en breves momentos sera aceptada o denegada</h5>
         <button onClick={this.peticionAltaUser} className="mt-4" style={{ backgroundColor: "black", color: "white", fontWeight: "bold" }}>Solicitar Darse de alta</button>
         </form>

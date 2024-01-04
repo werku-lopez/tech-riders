@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 export default class LoginPage extends Component {
   cajaMail = React.createRef();
@@ -85,14 +86,18 @@ export default class LoginPage extends Component {
               required
             />
           </div>
-          <button onClick={this.postLogin} className="btn btn-dark mt-4">
+        <button onClick={this.postLogin} className="btn btn-dark mt-4">
             Iniciar Sesión
           </button>
 
           {this.state.statusVerficado && (
   <>
     {this.state.statusLogueado ? (
-      <p>USUARIO REGISTRADO</p>
+      <div>
+         <p>USUARIO REGISTRADO</p>
+         <NavLink to={"/vertechriders/"+this.state.token}> <button>Ver todos los techriders</button></NavLink>
+      </div>
+             
     ) : (
       <>
         <p>USUARIO NO REGISTRADO</p>
