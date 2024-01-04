@@ -40,7 +40,7 @@ function VerTechRidersAdminElement() {
   <LayoutComponent>
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/login" element={<LoginPageDesign />} />
+      <Route path="/login" element={<LoginPage/>} />
       <Route path="/crearcuenta" element={<CrearCuentaPage />} />
 
       <Route path="/contacto" element={<Contactpage />} />
