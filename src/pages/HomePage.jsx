@@ -33,10 +33,10 @@ export default class HomePage extends Component {
                 Conectando Futuros: Charlas Tecnológicas para la Excelencia en
                 la Formación Profesional.
               </p>
-              <div class="flex justify-center">
-                <button class="inline-flex text-white bg-primary-500 border-0 py-2 px-6 focus:outline-none hover:bg-primary-600 rounded text-lg">
+              <div class="flex justify-center items-center">
+                <a href="/login" class=" text-white bg-primary-500 border-0 py-2 px-6 focus:outline-none hover:bg-primary-600 rounded text-lg">
                   Log in
-                </button>
+                </a>
                 <button class="ml-4 inline-flex text-gray-700 border-2 border-primary-500 bg-neutral-50  py-2 px-6 focus:outline-none hover:bg-neutral-100 rounded text-lg">
                   Sobre nosotros
                 </button>
@@ -66,6 +66,7 @@ export default class HomePage extends Component {
             </div>
             <div class="flex flex-wrap justify-center -m-4 mb-6">
               <div class="xl:w-1/3 md:w-1/2  p-4">
+              <a href="/infotr">
                 <div class="service-card   cursor-pointer snap-start shrink-0 py-6 px-6 bg-white flex flex-col gap-8 items-between transition-all duration-300 rounded shadow-sm shadow-[#00000050] group hover:bg-primary-500">
                   <div class="flex gap-2 flex-col">
                     <h3 class="font-bold text-2xl group-hover:text-white text-black/80">
@@ -81,8 +82,10 @@ export default class HomePage extends Component {
                     1
                   </p>
                 </div>
+                </a>
               </div>
               <div class="xl:w-1/3 md:w-1/2  p-4">
+              <a href="/infoempresa">
                 <div class="service-card   cursor-pointer snap-start shrink-0 py-6 px-6 bg-white flex flex-col gap-8 items-between transition-all duration-300 rounded shadow-sm shadow-[#00000050] group hover:bg-primary-500">
                   <div class="flex gap-2 flex-col">
                     <h3 class="font-bold text-2xl group-hover:text-white text-black/80">
@@ -96,8 +99,10 @@ export default class HomePage extends Component {
                     2
                   </p>
                 </div>
+                </a>
               </div>
               <div class="xl:w-1/3 md:w-1/2  p-4">
+                <a href="/infocentro">
                 <div class="service-card   cursor-pointer snap-start shrink-0 py-6 px-6 bg-white flex flex-col gap-8 items-between transition-all duration-300 rounded shadow-sm shadow-[#00000050] group hover:bg-primary-500">
                   <div class="flex gap-2 flex-col">
                     <h3 class="font-bold text-2xl group-hover:text-white text-black/80">
@@ -111,6 +116,7 @@ export default class HomePage extends Component {
                     3
                   </p>
                 </div>
+                </a>
               </div>
             </div>
           </div>
@@ -281,9 +287,9 @@ export default class HomePage extends Component {
                 te gusta alguna no dudes en solicitarla. Aprender, inspirarnos y
                 construir el futuro juntos es posible
               </p>
-              <button class="inline-flex text-white bg-primary-500 border-0 py-2 px-6 focus:outline-none hover:bg-primary-600 rounded text-lg">
-                ¡Apuntate ahora!
-              </button>
+              <a href="/crearcuenta" class="inline-flex text-white bg-primary-500 border-0 py-2 px-6 focus:outline-none hover:bg-primary-600 rounded text-lg">
+                ¡Apúntate ahora!
+              </a>
             </div>
           </div>
         </section>

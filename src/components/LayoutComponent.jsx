@@ -2,16 +2,15 @@ import React from "react";
 import logo from "../assets/images/LogoTechRiders.png";
 import logoTajamar from "../assets/images/LogoTajamar.png";
 
-
 const LayoutComponent = ({ children }) => {
   return (
-      <div className="flex flex-col min-h-screen bg-neutral-50 absolute inset-0 -z-10 h-fit w-full  bg-[radial-gradient(#d6ebf5_1px,transparent_1px)] [background-size:16px_16px] ">
+    <div className="flex flex-col min-h-screen bg-neutral-50 absolute inset-0 -z-10 h-fit w-full  bg-[radial-gradient(#d6ebf5_1px,transparent_1px)] [background-size:16px_16px] ">
       {/* Navbar */}
 
       <nav class="border-b-2 border-primary-300 bg-neutral-50">
         <div class="max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto p-4">
           <a
-            href="https://flowbite.com/"
+            href="/"
             class="flex invert items-center space-x-3 rtl:space-x-reverse"
           >
             <img src={logo} class="h-8 " alt="Flowbite Logo" />
@@ -42,7 +41,7 @@ const LayoutComponent = ({ children }) => {
             <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   class="block py-2 px-3 text-white bg-primary-500 rounded md:bg-transparent md:text-primary-900 md:p-0"
                   aria-current="page"
                 >
@@ -51,34 +50,26 @@ const LayoutComponent = ({ children }) => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/todascharlas"
                   class="block py-2 px-3 text-text-900 rounded hover:bg-background-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-500 md:p-0"
                 >
-                  About
+                  Charlas
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/staff"
                   class="block py-2 px-3 text-text-900 rounded hover:bg-background-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-500 md:p-0"
                 >
-                  Services
+                  Staff
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/contacto"
                   class="block py-2 px-3 text-text-900 rounded hover:bg-background-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-500 md:p-0"
                 >
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 px-3 text-text-900 rounded hover:bg-background-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-500 md:p-0"
-                >
-                  Contact
+                  Contacto
                 </a>
               </li>
             </ul>
@@ -171,14 +162,13 @@ const LayoutComponent = ({ children }) => {
           <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
           <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-              © 2023 by {" "}
+              © 2023 by{" "}
               <a href="https://www.tajamar.es" class="hover:underline">
                 Tajamar
               </a>
               . All Rights Reserved.
             </span>
             <div class="flex mt-4 sm:justify-center sm:mt-0">
-
               <a
                 href="#"
                 class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
@@ -232,7 +222,6 @@ const LayoutComponent = ({ children }) => {
                 </svg>
                 <span class="sr-only">GitHub account</span>
               </a>
-
             </div>
           </div>
         </div>
