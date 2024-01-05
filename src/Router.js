@@ -23,7 +23,7 @@ import CharlasTechRiderPage from './pages/CharlasTechRiderPage';
 
 import VerTechRidersAdminPage from './pages/VerTechRidersAdmin';
 import VerEmpresasCentroAdminPage from './pages/VerEmpresasCentroAdmin';
-
+import NotificacionesAdminPage from './pages/NotificacionesAdminPage';
 
 const AppRouter = () => {
   function CharlasTechRiderElement() {
@@ -38,6 +38,10 @@ function VerTechRidersAdminElement() {
 function VerEmpresasCentroAdminElement() {
   var {token} = useParams()
   return<VerEmpresasCentroAdminPage token = {token}/>
+}
+function NotificacionesAdminElement() {
+  var {token} = useParams()
+  return<NotificacionesAdminPage token = {token}/>
 }
   return (
 
@@ -60,9 +64,14 @@ function VerEmpresasCentroAdminElement() {
       {/* Otras rutas */}
       <Route path="/inscripcion" element={<InscripcionPage />} />
       <Route path="/crear" element={<CentroLayoutPage />} />
+
+      {/* TECHRIDER */}
       <Route path='/charlastechrider/:idtechrider' element={<CharlasTechRiderElement />} />
+
+      {/* ADMIN */}
       <Route path='/vertechriders/:token' element={<VerTechRidersAdminElement />} />
       <Route path='/verempresascentro/:token' element={<VerEmpresasCentroAdminElement />} />
+      <Route path='/notificacionesalta/:token' element={<NotificacionesAdminElement />} />
     </Routes>
   </LayoutComponent>
 </Router>

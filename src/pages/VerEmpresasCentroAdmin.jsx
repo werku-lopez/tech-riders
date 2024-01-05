@@ -32,6 +32,8 @@ export default class VerEmpresasCentroAdminPage extends Component{
             <div>
                 <div>
                      <NavLink to={"/vertechriders/"+this.props.token}><button style={{backgroundColor: "green", color:"white", fontWeight:"bold", border: '5px solid green',}}>Ver todos los TechRiders</button></NavLink> 
+                     <br />
+                     <NavLink to={"/notificacionesalta/"+this.props.token}><button style={{backgroundColor: "blue", color:"white", fontWeight:"bold", border: '5px solid blue',}}>Ver Notificaciones de alta</button></NavLink> 
                 </div>
                 <div style={{textAlign:"center"}}>
                      <h1>LISTADO DE TODAS LAS EMPRESAS/CENTROS</h1>
@@ -53,6 +55,9 @@ export default class VerEmpresasCentroAdminPage extends Component{
                                      ) : (
                                     <h4>Tipo: Centro/Escuela</h4>
                                     )}
+                                    <div style={{float:"right"}}>
+                                        <button style={{backgroundColor: "green", color:"white", fontWeight:"bold", border: '5px solid green',}}>Dar de baja empresa/centro</button>
+                                    </div>
                                 </div>
                             )
                         })
