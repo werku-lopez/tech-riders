@@ -91,7 +91,7 @@ export default class VerTechRidersAdminPage extends Component{
                             </div>
                         )
                     }
-                    return null;
+                  
                 })
             }
            </div>

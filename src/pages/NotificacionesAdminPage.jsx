@@ -84,7 +84,7 @@ export default class NotificacionesAdminPage extends Component{
                             </div>
                         )
                     }
-                    return null;
+                  
                 })
             }
         </div>
