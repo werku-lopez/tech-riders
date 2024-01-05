@@ -36,6 +36,13 @@ export default class VerTechRidersAdminPage extends Component{
     render(){
         return(
            <div>
+            <div>
+                <NavLink to={"/verempresascentro/"+this.props.token}><button style={{backgroundColor: "green", color:"white", fontWeight:"bold", border: '5px solid green',}}>Ver todas las empresas/centros</button></NavLink> 
+            </div>
+            <div style={{textAlign:"center"}}>
+                 <h1>LISTADO DE TODOS LOS TECHRIDERS</h1>
+            </div>
+           
             {this.state.status == true &&
                 this.state.usuarios.map((usuario,index)=>{
                     if(usuario.idRole === 3){
@@ -48,7 +55,11 @@ export default class VerTechRidersAdminPage extends Component{
                                 <h4>Linkedin: {usuario.linkedin} </h4>
                                 <h4>Password: {usuario.password} </h4>
                                 <h4>IdProvincia: {usuario.idProvincia}</h4>
-                                <h4>Estado:{usuario.estado} </h4>
+                                {usuario.estado === 1 ? (
+                                    <h4>Estado: ALTA</h4>
+                                     ) : (
+                                    <h4>Estado: BAJA</h4>
+                                    )}
                             </div>
                         )
                     }

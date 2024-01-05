@@ -22,6 +22,7 @@ import InscripcionPage from './pages/InscripcionPage';
 import CharlasTechRiderPage from './pages/CharlasTechRiderPage';
 
 import VerTechRidersAdminPage from './pages/VerTechRidersAdmin';
+import VerEmpresasCentroAdminPage from './pages/VerEmpresasCentroAdmin';
 
 
 const AppRouter = () => {
@@ -33,6 +34,10 @@ const AppRouter = () => {
 function VerTechRidersAdminElement() {
   var {token} = useParams()
   return<VerTechRidersAdminPage token = {token}/>
+}
+function VerEmpresasCentroAdminElement() {
+  var {token} = useParams()
+  return<VerEmpresasCentroAdminPage token = {token}/>
 }
   return (
 
@@ -57,6 +62,7 @@ function VerTechRidersAdminElement() {
       <Route path="/crear" element={<CentroLayoutPage />} />
       <Route path='/charlastechrider/:idtechrider' element={<CharlasTechRiderElement />} />
       <Route path='/vertechriders/:token' element={<VerTechRidersAdminElement />} />
+      <Route path='/verempresascentro/:token' element={<VerEmpresasCentroAdminElement />} />
     </Routes>
   </LayoutComponent>
 </Router>
