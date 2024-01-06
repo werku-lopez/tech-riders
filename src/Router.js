@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import LoginPageDesign from './pages/LoginPageDesign';
 import Contactpage from './pages/ContactPage';
 import StaffPage from './pages/StaffPage';
+import OrigenTR from './pages/OrigenTR';
 
 import InfoCentroFormador from './pages/InfoCentroFormador';
 import InfoTR from './pages/InfoTR';
@@ -37,6 +38,7 @@ const AppRouter = () => {
       <Route path="/contacto" element={<Contactpage />} />
       <Route path="/todascharlas" element={<TodasCharlasPage />} />
       <Route path="/staff" element={<StaffPage />} />
+      <Route path="/origen" element={<OrigenTR />} />
 
       <Route path="/infocentro" element={<InfoCentroFormador />} />
       <Route path="/infotr" element={<InfoTR />} />

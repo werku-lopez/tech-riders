@@ -1,79 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/images/LogoTechRiders.png";
 import logoTajamar from "../assets/images/LogoTajamar.png";
-
+import { Link } from "react-router-dom";
+import { Menu, Close } from "../assets/icons/icons";
+import { formToJSON } from "axios";
 const LayoutComponent = ({ children }) => {
+  let [open, setOpen] = useState(false);
+  let Links = [
+    { name: "Home", link: "/" },
+    { name: "Charlas", link: "/todascharlas" },
+    { name: "Staff", link: "/staff" },
+    { name: "Contacto", link: "/contacto" },
+  ];
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="flex flex-col min-h-screen bg-neutral-50 absolute inset-0 -z-10 h-fit w-full  bg-[radial-gradient(#d6ebf5_1px,transparent_1px)] [background-size:16px_16px] ">
       {/* Navbar */}
 
       <nav class="border-b-2 border-primary-300 bg-neutral-50">
         <div class="max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto p-4">
-          <a
-            href="/"
-            class="flex invert items-center space-x-3 rtl:space-x-reverse"
+          <Link
+            to={"/"}
+            className="flex invert items-center space-x-3 rtl:space-x-reverse"
           >
             <img src={logo} class="h-8 " alt="Flowbite Logo" />
-          </a>
-          <button
-            data-collapse-toggle="navbar-default"
-            type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          </Link>
+          {/* Menu icon */}
+          <div
+            onClick={() => setOpen(!open)}
+            className="absolute right-8 top-6 cursor-pointer md:hidden w-7 h-7"
           >
-            <span class="sr-only">Open main menu</span>
-            <svg
-              class="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
-          <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ">
-              <li>
-                <a
-                  href="/"
-                  class="block py-2 px-3 text-white bg-primary-500 rounded md:bg-transparent md:text-primary-900 md:p-0"
-                  aria-current="page"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/todascharlas"
-                  class="block py-2 px-3 text-text-900 rounded hover:bg-background-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-500 md:p-0"
-                >
-                  Charlas
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/staff"
-                  class="block py-2 px-3 text-text-900 rounded hover:bg-background-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-500 md:p-0"
-                >
-                  Staff
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/contacto"
-                  class="block py-2 px-3 text-text-900 rounded hover:bg-background-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-500 md:p-0"
-                >
-                  Contacto
-                </a>
-              </li>
-            </ul>
+            {open ? <Close /> : <Menu />}
           </div>
+
+          {/* linke items */}
+          <ul
+            className={`md:flex md:items-center  md:pb-0 pb-12 absolute top-[66px] md:static md:bg-neutral-50 bg-primary-50 z-50  left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-300 ease-in ${
+              open ? "top-16 " : "hidden -z-40"
+            }`}
+          >
+            {Links.map((link) => (
+              <li className="md:ml-8 md:my-0 my-7 font-semibold">
+                <a
+                  href={link.link}
+                  className="text-gray-800 hover:text-blue-400 duration-500"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+            <a href="/login" class="shrink-0 md:ml-16 text-white bg-primary-500 border-0 py-2 px-6 focus:outline-none hover:bg-primary-600 rounded text-lg">
+                  Log in
+                </a>
+          </ul>
         </div>
       </nav>
 

@@ -59,7 +59,7 @@ export default class LoginPageDesign extends Component {
                         </form>
                         <div class="text-sm text-center mt-[1.6rem]">
                           ¿Todavía no tienes cuenta?{" "}
-                          <a class="text-sm text-primary-300" href="#">
+                          <a class="text-sm text-primary-300" href="/crearcuenta">
                             Crea una
                           </a>
                         </div>
