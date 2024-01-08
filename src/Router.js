@@ -17,6 +17,7 @@ import CrearCuentaPage from './pages/CrearCuentaPage';
 import EmpresasCentro from './pages/EmpresasCentroPage';
 import CentroLayoutPage from './pages/CentroLayoutPage';
 import TodasCharlasPage from './pages/TodasCharlasPage';
+import TodasEmpresasPage from './pages/TodasEmpresasPage';
 
 import InscripcionPage from './pages/InscripcionPage';
 import CharlasTechRiderPage from './pages/CharlasTechRiderPage';
@@ -33,10 +34,12 @@ const AppRouter = () => {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPageDesign />} />
+      <Route path="/e" element={<EmpresasCentro />} />
       <Route path="/crearcuenta" element={<CrearCuentaPage />} />
 
       <Route path="/contacto" element={<Contactpage />} />
       <Route path="/todascharlas" element={<TodasCharlasPage />} />
+      <Route path="/todasempresas" element={<TodasEmpresasPage />} />
       <Route path="/staff" element={<StaffPage />} />
       <Route path="/origen" element={<OrigenTR />} />
 

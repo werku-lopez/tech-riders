@@ -1,9 +1,53 @@
 import React, { Component } from "react";
 import logo from "../assets/images/LogoTechRiders.png";
+import axios from "axios";
 
 export default class LoginPageDesign extends Component {
+  cajaMail = React.createRef();
+  cajaPassword = React.createRef();
+
+  state = {
+    statusLogueado: false,
+    token: "",
+    statusVerficado: false
+  };
+
+  postLogin = (e) => {
+    e.preventDefault();
+
+    var mail = this.cajaMail.current.value;
+    var password = this.cajaPassword.current.value;
+    console.log(mail, password);
+
+    var usuario = {
+      email: mail,
+      password: password,
+    };
+    console.log(usuario);
+
+    var request = "api/Auth/Login";
+    var api = "https://apitechriders.azurewebsites.net/";
+    var url = api + request;
+
+    axios.post(url, usuario).then((response) => {
+      console.log(response.data);
+      if (response.data) {
+        this.setState({
+          statusLogueado: true,
+          token: response.data,
+          statusVerficado: true
+        });
+      } else{
+        this.setState({
+          statusLogueado: false,
+          statusVerficado: true
+        });
+      }
+    });
+  };
   render() {
     return (
+      <>
       <section className="h-full  flex justify-center items-center">
         <div className="container  h-full p-10">
           <div className="  h-full flex-wrap   justify-center  text-neutral-800 ">
@@ -27,8 +71,11 @@ export default class LoginPageDesign extends Component {
                               Email
                             </label>
                             <input
-                              type="text"
-                              id="email"
+                             type="email"
+                             id="email"
+                             name="email"
+                             ref={this.cajaMail}
+                             required
                               class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2  ring-primary-500 outline-0"
                             />
                           </div>
@@ -40,8 +87,11 @@ export default class LoginPageDesign extends Component {
                               Password
                             </label>
                             <input
-                              type="text"
+                              type="password"
                               id="password"
+                              name="password"
+                              ref={this.cajaPassword}
+                              required
                               class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-primary-500 outline-0"
                             />
                           </div>
@@ -49,13 +99,16 @@ export default class LoginPageDesign extends Component {
                             <a class="text-sm text-[#7747ff]" href="#">
                               ¿Olvidaste tu contraseña?
                             </a>
+                            
                           </div>
                           <button
                             type="submit"
+                            onClick={this.postLogin}
                             class="inline-flex text-white bg-primary-500 border-0 py-2 px-6 focus:outline-none hover:bg-primary-600 rounded text-lg"
                           >
-                            Log in
+                            Iniciar sesion
                           </button>
+                  
                         </form>
                         <div class="text-sm text-center mt-[1.6rem]">
                           ¿Todavía no tienes cuenta?{" "}
@@ -79,6 +132,19 @@ export default class LoginPageDesign extends Component {
           </div>
         </div>
       </section>
+      {this.state.statusVerficado && (
+  <>
+    {this.state.statusLogueado ? (
+      <p>USUARIO REGISTRADO</p>
+    ) : (
+      <>
+        <p>USUARIO NO REGISTRADO</p>
+        <button style={{ backgroundColor: "blue", color: "white", fontWeight: "bold" }}>Inscribirse Como Centro o empresa</button>
+      </>
+    )}
+  </>
+)}
+      </>
     );
   }
 }

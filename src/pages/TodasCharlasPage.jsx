@@ -7,6 +7,8 @@ export default class TodasCharlasPage extends Component {
   state = {
     charlas: [],
     provincias: [],
+    tecnologiascharlas: [],
+    tecnologias: [],
     status: false,
     statusProvincia: false,
     isLoading: true,
@@ -27,6 +29,30 @@ export default class TodasCharlasPage extends Component {
         provincias: response.data,
       });
       console.log(this.state.provincias);
+    });
+  };
+  loadTecnologiasCharlas = () => {
+    var request = "api/tecnologias";
+    var api = "https://apitechriders.azurewebsites.net/";
+    var url = api + request;
+    console.log(url);
+    axios.get(url).then((response) => {
+      this.setState({
+        tecnologias: response.data,
+      });
+      console.log(this.state.tecnologias);
+    });
+  };
+  loadTecnologias = () => {
+    var request = "api/tecnologiascharlas";
+    var api = "https://apitechriders.azurewebsites.net/";
+    var url = api + request;
+    console.log(url);
+    axios.get(url).then((response) => {
+      this.setState({
+        tecnologiascharlas: response.data,
+      });
+      console.log(this.state.tecnologiascharlas);
     });
   };
   loadCharlas = () => {
@@ -51,6 +77,8 @@ export default class TodasCharlasPage extends Component {
   componentDidMount = () => {
     this.loadCharlas();
     this.loadProvincias();
+    this.loadTecnologiasCharlas();
+    this.loadTecnologias();
   };
   render() {
     const getProvinciaNombre = (idProvincia) => {
@@ -59,7 +87,21 @@ export default class TodasCharlasPage extends Component {
       );
       return provincia ? provincia.nombreProvincia : "Desconocido";
     };
-
+    const getTecnologiaNombre = (idTecnologia) => {
+      const tecnologia = this.state.tecnologias.find(
+        (t) => t.idTecnologia === idTecnologia
+      );
+      return tecnologia ? tecnologia.nombreTecnologia : "Desconocido";
+    };
+    const getTecnologiaCharlas = (idCharla) => {
+      const tecnologias = this.state.tecnologiascharlas
+        .filter((tecnologia) => tecnologia.idCharla === idCharla)
+        .map((tecnologia) => getTecnologiaNombre(tecnologia.idTecnologia));
+    
+      return tecnologias.length > 0 ? tecnologias.join(", ") : "No especificado";
+    };
+    
+    //idTipoTecnologia
     return (
       <>
         <div class="flex flex-col text-center w-full my-12">
@@ -92,9 +134,7 @@ export default class TodasCharlasPage extends Component {
                     <div className="flex  flex-wrap items-center gap-2 mb-4">
                       <p className="mb-2">
                         Estado:{" "}
-                        <span className="bg-primary-500 rounded-full p-1 px-4">
-                          
-                        </span>{" "}
+                        <span className="bg-primary-500 rounded-full p-1 px-4"></span>{" "}
                       </p>
 
                       <p className="block shrink-0 mb-2">
@@ -198,6 +238,12 @@ export default class TodasCharlasPage extends Component {
                               {charla.turno}
                             </span>{" "}
                           </p>
+                          <p className="block shrink-0 mb-2">
+  Tecnologías:{" "}
+  <span className="bg-amber-100 rounded-full py-1 px-6">
+    {getTecnologiaCharlas(charla.idCharla)}
+  </span>{" "}
+</p>
                         </div>
 
                         {/* <input
