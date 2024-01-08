@@ -49,7 +49,7 @@ const AppRouter = () => {
       <Route path='/charlastechrider/:idtechrider' element={<CharlasTechRiderElement />} />
       <Route path="/inscripcion/empresacentro" element={<EmpresasCentro />} />
       <Route path="/centrolayoutpage/*" element={<CentroLayoutPage />}/>
-      <Route path="/solicitudCharla" element={<SolicitarCharlas />} />
+      <Route path="/solicitudCharla/" element={<SolicitarCharlas />} />
     </Routes>
   </LayoutComponent>
 </Router>
