@@ -36,8 +36,8 @@ export default class InscripcionPage extends Component{
 
     peticionAltaUser=(e)=>{
         e.preventDefault()
-        var idUsuario = 0  //eL ID se Autoincrementa solo? 
-        var nombre = this.cajaNombre.current.value
+        var idUsuario = 0;  //eL ID se Autoincrementa solo? ;
+        var nombre = this.cajaNombre.current.value;
         var apellidos = this.cajaApellidos.current.value
         var email = this.cajaEmail.current.value
         var telefono =  this.cajaTelefono.current.value
@@ -45,9 +45,9 @@ export default class InscripcionPage extends Component{
         var password = this.cajaPassword.current.value
         var idRole = 3  //3 porque el rol Techrider es el 3
         var idProvincia = parseInt(this.selectProvincia.current.value)
-        var idEmpresaCentro = 0  //cero porque no es ni empresa ni centro 
+        var idEmpresaCentro = null
         // var estado  = 0 o 1 ? 
-        var estado = 0 
+        var estado = 2
 
         var  newTechRider = {
             idUsuario:idUsuario,
@@ -127,7 +127,6 @@ export default class InscripcionPage extends Component{
             </select>
         </div>
 
-         {/* FALTA  COMO HACER LO DE IDEmpresaCentro y estado */}
         <h5>El admin revisara su solicitud y en breves momentos sera aceptada o denegada</h5>
         <button onClick={this.peticionAltaUser} className="mt-4" style={{ backgroundColor: "black", color: "white", fontWeight: "bold" }}>Solicitar Darse de alta</button>
         </form>

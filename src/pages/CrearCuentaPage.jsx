@@ -23,8 +23,8 @@ export default function CrearCuentaPage() {
             Sigue los siguientes pasos
           </p>
         </div>
-        <div class="container bg-white px-10 sm:px-5 py-12 mx-auto flex flex-wrap shadow-sm shadow-[#00000050] rounded-xl">
-          <div class="flex relative pt-10 pb-10 sm:items-center md:w-2/3 mx-auto">
+        <div class="container bg-white px-10  py-12 mx-auto flex flex-col justify-start shadow-sm shadow-[#00000050] rounded-xl">
+          <div class="flex relative pt-10 pb-10 sm:items-center md:w-2/3 w-1/2 mx-auto">
             <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
               <div class="h-full w-1 bg-primary-100 pointer-events-none"></div>
             </div>
@@ -42,7 +42,7 @@ export default function CrearCuentaPage() {
               </div>
             </div>
           </div>
-          <div class="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
+          <div class="flex relative pb-10 sm:items-center md:w-2/3 w-1/2 mx-auto">
             <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
               <div class="h-full w-1 bg-primary-100 pointer-events-none"></div>
             </div>
@@ -60,7 +60,7 @@ export default function CrearCuentaPage() {
               </div>
             </div>
           </div>
-          <div class="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
+          <div class="flex relative pb-10 sm:items-center md:w-2/3 w-1/2 mx-auto">
             <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
               <div class="h-full w-1 bg-primary-100 pointer-events-none"></div>
             </div>
@@ -90,8 +90,8 @@ export default function CrearCuentaPage() {
             </h2>
           </div>
           <div class="flex flex-wrap justify-center -m-4">
-            <ul class="flex  w-full justify-center gap-6 ">
-              <li>
+            <ul class="flex flex-wrap w-full justify-center gap-6 ">
+              <li className="">
                 <input
                   type="radio"
                   onClick={() => handleFormularioClick("TechRiders")}
@@ -107,7 +107,7 @@ export default function CrearCuentaPage() {
                 >
                   <div class="block">
                     <div class="w-full text-lg font-semibold">Tech Riders</div>
-                    <div class="w-full">Good for small websites</div>
+                    <div class="w-full">Deseas dar charlas en centros</div>
                   </div>
                   <svg
                     class="w-5 h-5 ms-3 rtl:rotate-180"
@@ -126,7 +126,7 @@ export default function CrearCuentaPage() {
                   </svg>
                 </label>
               </li>
-              <li>
+              <li className="">
                 <input
                   type="radio"
                   onClick={() => handleFormularioClick("Empresas")}
@@ -141,7 +141,7 @@ export default function CrearCuentaPage() {
                 >
                   <div class="block">
                     <div class="w-full text-lg font-semibold">Empresas</div>
-                    <div class="w-full">Good for large websites</div>
+                    <div class="w-full">Deseas inscribir a tu empresa para dar charlas</div>
                   </div>
                   <svg
                     class="w-5 h-5 ms-3 rtl:rotate-180"
@@ -160,7 +160,7 @@ export default function CrearCuentaPage() {
                   </svg>
                 </label>
               </li>
-              <li>
+              <li className="">
                 <input
                   type="radio"
                   onClick={() => handleFormularioClick("CentroEducativo")}
@@ -178,7 +178,7 @@ export default function CrearCuentaPage() {
                     <div class="w-full text-lg font-semibold">
                       Centro educativo
                     </div>
-                    <div class="w-full">Suitable for medium-sized websites</div>
+                    <div class="w-full">Eres un profesor que desea solicitar charlas</div>
                   </div>
                   <svg
                     class="w-5 h-5 ms-3 rtl:rotate-180"
