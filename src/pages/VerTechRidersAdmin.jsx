@@ -28,7 +28,7 @@ export default class VerTechRidersAdminPage extends Component{
         })
 
     }
-    //NO DA  DE BAJA
+    
     cambiarEstado = (idusuario, estado) => {
         var token = this.props.token;
         console.log(estado);

@@ -25,6 +25,7 @@ export default class NotificacionesAdminPage extends Component{
                 usuarios: response.data,     
             })
             console.log(this.state.usuarios)
+            
         })
 
     }
