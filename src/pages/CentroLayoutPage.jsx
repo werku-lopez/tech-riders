@@ -10,7 +10,8 @@ export default function CentroLayoutPage() {
   };
 
   const loadSolicitudes = (token) => {
-    var request = "api/querytools/charlasempresas";
+    var idCentro = 1;
+    var request = "api/QueryTools/FindCharlasTechriderEmpresa/" + idCentro;
     var url = "https://apitechriders.azurewebsites.net/" + request;
 
     var config = {
@@ -19,17 +20,18 @@ export default function CentroLayoutPage() {
       },
     };
 
+    //console.log(token)
     axios.get(url, config).then((response) => {
       //setSolicitudes(response.data);
       const fechaActual = new Date();
       const fecha_hoy = fechaActual.toISOString().split(".")[0];
 
       var solicitudesActivas = response.data.filter((solicitud) => {
-        return solicitud.fechaCharla >= fecha_hoy;
+        return solicitud.fechaCharla <= fecha_hoy;
       });
       setSolicitudesActivas(solicitudesActivas);
-      /*console.log(fecha_hoy);
-      console.log(solicitudesActivas);*/
+      //console.log(fecha_hoy);
+      console.log(solicitudesActivas);
     });
   };
 
@@ -127,23 +129,18 @@ export default function CentroLayoutPage() {
                   />
                 </div>
                 <div className="flex-1 w-32">
-                  <p>
-                    Las softskills son altamente valoradas por los empleadores,
-                    y pueden mejorar el rendimiento y la productividad en el
-                    entorno laboral. Liderazgo y gestión de equipos, creatividad
-                    e innovación, negociación, capacidad de colaboración y de
-                    trabajo en equipo, adaptabilidad y flexibilidad,
-                    productividad y gestión del tiempo.
-                  </p>
-                </div>
-                <div>
-                  {
-                    solicitudesActivas.map((solicitud)=>{
-                      return (
-                        <p key={solicitud.id}>{solicitud.id}</p>
-                      )
-                    })
-                  }
+                  {solicitudesActivas.map((solicitud) => {
+                    return (
+                      <div>
+                        <p key={solicitud.id}>Descripción: {solicitud.descripcionCharla}</p>
+                        <p>Estado: {solicitud.estadoCharla}</p>
+                        <p>Fecha: {solicitud.fechaCharla}</p>
+                        <p>Modalidad: {solicitud.modalidad}</p>
+                        <p>Turno: {solicitud.turno}</p>
+                        <p>TechRider: {solicitud.techRider}</p>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
