@@ -32,11 +32,9 @@ export default class VerTechRidersAdminPage extends Component{
     cambiarEstado = (idusuario, estado) => {
         var token = this.props.token;
         console.log(estado);
-        if (estado === 2) {
-          estado = 1;
-        } else {
-          estado = 2;
-        }
+        if (estado === 1) {
+          estado =0;
+        } 
         console.log(estado);
         var request = "api/usuarios/updateEstadoUsuario/"+idusuario +"/" + estado;
         var api = "https://apitechriders.azurewebsites.net/";

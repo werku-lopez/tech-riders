@@ -7,6 +7,7 @@ import LoginPageDesign from './pages/LoginPageDesign';
 import LoginPage from './pages/LoginPage';
 import Contactpage from './pages/ContactPage';
 import StaffPage from './pages/StaffPage';
+import OrigenTR from './pages/OrigenTR';
 
 import InfoCentroFormador from './pages/InfoCentroFormador';
 import InfoTR from './pages/InfoTR';
@@ -17,6 +18,7 @@ import CrearCuentaPage from './pages/CrearCuentaPage';
 import EmpresasCentro from './pages/EmpresasCentroPage';
 import CentroLayoutPage from './pages/CentroLayoutPage';
 import TodasCharlasPage from './pages/TodasCharlasPage';
+import TodasEmpresasPage from './pages/TodasEmpresasPage';
 
 import InscripcionPage from './pages/InscripcionPage';
 import CharlasTechRiderPage from './pages/CharlasTechRiderPage';
@@ -49,12 +51,14 @@ function NotificacionesAdminElement() {
   <LayoutComponent>
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/login" element={<LoginPage/>} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/crearcuenta" element={<CrearCuentaPage />} />
 
       <Route path="/contacto" element={<Contactpage />} />
       <Route path="/todascharlas" element={<TodasCharlasPage />} />
+      <Route path="/todasempresas" element={<TodasEmpresasPage />} />
       <Route path="/staff" element={<StaffPage />} />
+      <Route path="/origen" element={<OrigenTR />} />
 
       <Route path="/infocentro" element={<InfoCentroFormador />} />
       <Route path="/infotr" element={<InfoTR />} />

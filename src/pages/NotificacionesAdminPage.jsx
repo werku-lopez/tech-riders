@@ -35,11 +35,9 @@ export default class NotificacionesAdminPage extends Component{
     cambiarEstado = (idusuario, estado) => {
         var token = this.props.token;
         console.log(estado);
-        if (estado === 2) {
+        if (estado === 0) {
           estado = 1;
-        } else {
-          estado = 2;
-        }
+        } 
         console.log(estado);
         var request = "api/usuarios/updateEstadoUsuario/"+idusuario +"/" + estado;
         var api = "https://apitechriders.azurewebsites.net/";
@@ -68,7 +66,7 @@ export default class NotificacionesAdminPage extends Component{
              </div>
              {this.state.status == true &&
                 this.state.usuarios.map((usuario,index)=>{
-                    if(usuario.estado === 2){
+                    if(usuario.estado === 0){
                         return(
                             <div key={index} style={{ border: "1px solid black", padding: "10px", marginBottom: "10px", overflow: "auto"}}>
                                 <h1>Nombre: {usuario.nombre} </h1>
