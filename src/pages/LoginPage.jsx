@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { NavLink, Navigate } from "react-router-dom";
 
 export default class LoginPage extends Component {
   cajaMail = React.createRef();
@@ -7,6 +8,7 @@ export default class LoginPage extends Component {
 
   state = {
     statusLogueado: false,
+    statusLogin: false,
     token: "",
     statusVerficado: false
   };
@@ -33,9 +35,11 @@ export default class LoginPage extends Component {
       if (response.data) {
         this.setState({
           statusLogueado: true,
-          token: response.data,
-          statusVerficado: true
+          token: response.data.response,
+          statusVerficado: true,
+          statusLogin:true
         });
+      
       } else{
         this.setState({
           statusLogueado: false,
@@ -59,10 +63,11 @@ export default class LoginPage extends Component {
           textAlign: "center",
         }}
       >
+       
         <h1>
           <b>INICIE SESION</b>
         </h1>
-        <form>
+        <form onSubmit={this.postLogin}> 
           <div style={{ marginBottom: "20px" }}>
             <label htmlFor="email">Correo Electrónico:</label>
             <input
@@ -85,14 +90,17 @@ export default class LoginPage extends Component {
               required
             />
           </div>
-          <button onClick={this.postLogin} className="btn btn-dark mt-4">
-            Iniciar Sesión
-          </button>
 
+          <button>Iniciar Sesion</button>
+         
           {this.state.statusVerficado && (
   <>
     {this.state.statusLogueado ? (
-      <p>USUARIO REGISTRADO</p>
+      <div>
+         <p>USUARIO REGISTRADO</p>
+        <button>Ver todos los techriders</button>
+      </div>
+             
     ) : (
       <>
         <p>USUARIO NO REGISTRADO</p>
@@ -102,6 +110,14 @@ export default class LoginPage extends Component {
   </>
 )}
         </form>
+      
+        <div>
+          {
+            this.state.statusLogin ==true&&(
+                   <Navigate to={"/vertechriders/"+this.state.token}></Navigate>
+            )
+          }
+        </div>
       </div>
     );
   }
