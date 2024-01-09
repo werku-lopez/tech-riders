@@ -103,12 +103,12 @@ export default class TodasEmpresasPage extends Component {
             </section>
           </div>
         )}
-
+   
         <section class="relative bg-neutral-50 p-2 px-4 overflow-x-auto shadow-sm shadow-[#00000050] rounded">
           <ul class="w-full flex flex-col gap-4 py-4 text-left text-sm text-primary-500 rtl:text-right dark:text-primary-400">
             {this.state.status === true &&
-              this.state.empresas.map((empresa, index) => {
-                return (
+              this.state.empresas.filter(empresa => empresa.idTipoEmpresa === 1)
+              .map((empresa, index) => (
                   <>
                     <li
                       id={index}
@@ -172,8 +172,86 @@ export default class TodasEmpresasPage extends Component {
                       </div>
                     </li>
                   </>
-                );
-              })}
+                     ))}
+          </ul>
+        </section>
+        <div class="flex flex-col text-center w-full my-12">
+          <h2 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">
+            Centros colaboradores
+          </h2>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+              Estos son las centros educativos que colaboran con nosotros
+          </p>
+        </div>
+        <section class="relative bg-neutral-50 p-2 px-4 overflow-x-auto shadow-sm shadow-[#00000050] rounded">
+          <ul class="w-full flex flex-col gap-4 py-4 text-left text-sm text-primary-500 rtl:text-right dark:text-primary-400">
+            {this.state.status === true &&
+              this.state.empresas.filter(empresa => empresa.idTipoEmpresa === 2)
+              .map((empresa, index) => (
+                  <>
+                    <li
+                      id={index}
+                      class="shadow-sm shadow-[#00000050]  rounded bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
+                    >
+                      <div class="whitespace-nowrap flex sm:flex-row flex-col-reverse gap-2 items-end sm:justify-between   px-6 py-4 font-medium text-gray-900 bg-primary-50">
+                        <div className="inline-flex  gap-1">
+                          <p className="bg-primary-300 font-bold p-2 px-4 rounded-full">
+                            {empresa.nombre} - {empresa.razonSocial}
+                          </p>
+                          {/* <p className="bg-secondary-200 p-2 px-4 rounded-full">
+                            {getProvinciaNombre(charla.idProvincia)}
+                          </p> */}
+                          {/* <p className="bg-secondary-200 p-2 px-4 rounded-full">
+                            {empresa.razonSocial}
+                          </p> */}
+                        </div>
+                       
+                      </div>
+                      <div class="flex flex-row flex-wrap px-6 py-4 font-medium text-gray-900 ">
+                        <div className="flex  flex-wrap items-center gap-2 mb-4">
+                          
+                          <p className="block shrink-0 mb-2">
+                            Direccion:{" "}
+                            <span className="bg-amber-100 rounded-full py-1 px-6">
+                              {empresa.direccion}
+                            </span>{" "}
+                          </p>
+                          <p className="block shrink-0 mb-2">
+                            Teléfono:{" "}
+                            <span className="bg-amber-100 rounded-full py-1 px-6">
+                              {empresa.telefono}
+                            </span>{" "}
+                          </p>
+                          <p className="block shrink-0 mb-2">
+                            Contacto:{" "}
+                            <span className="bg-amber-100 rounded-full py-1 px-6">
+                              {empresa.personaContacto}
+                            </span>{" "}
+                          </p>
+                          <p className="block shrink-0 mb-2">
+                            Contacto:{" "}
+                            <span className="bg-amber-100 rounded-full py-1 px-6">
+                            {getProvinciaNombre(empresa.idProvincia)}
+                            </span>{" "}
+                          </p>
+                          {/* <p className="block shrink-0 mb-2">
+  Tecnologías:{" "}
+  <span className="bg-amber-100 rounded-full py-1 px-6">
+    {getTecnologiaCharlas(charla.idCharla)}
+  </span>{" "}
+</p> */}
+                        </div>
+
+                        {/* <input
+                          type="datetime-local"
+                          disabled
+                          value={charla.fechaCharla}
+                        /> */}
+                        
+                      </div>
+                    </li>
+                  </>
+                     ))}
           </ul>
         </section>
       </>

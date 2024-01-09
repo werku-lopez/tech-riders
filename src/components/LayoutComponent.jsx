@@ -11,7 +11,7 @@ const LayoutComponent = ({ children }) => {
     { name: "Charlas", link: "/todascharlas" },
     { name: "Staff", link: "/staff" },
     { name: "Contacto", link: "/contacto" },
-    { name: "Empresas", link: "/todasempresas" },
+    { name: "Colaboradores", link: "/todasempresas" },
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);

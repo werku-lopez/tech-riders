@@ -42,6 +42,7 @@ const AppRouter = () => {
       <Route path="/todasempresas" element={<TodasEmpresasPage />} />
       <Route path="/staff" element={<StaffPage />} />
       <Route path="/origen" element={<OrigenTR />} />
+      <Route path="/centro" element={<CentroLayoutPage />} />
 
       <Route path="/infocentro" element={<InfoCentroFormador />} />
       <Route path="/infotr" element={<InfoTR />} />

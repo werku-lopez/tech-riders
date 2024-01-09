@@ -106,10 +106,10 @@ export default class TodasCharlasPage extends Component {
       <>
         <div class="flex flex-col text-center w-full my-12">
           <h2 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">
-            Charlas
+            Charlas disponibles
           </h2>
           <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Mira nuestras charlas disponibles y las charlas que hemos dado
+            Mira nuestras charlas disponibles
           </p>
         </div>
         {/* Mostrar el esqueleto de carga mientras isLoading es true */}
@@ -160,9 +160,10 @@ export default class TodasCharlasPage extends Component {
 
         <section class="relative bg-neutral-50 p-2 px-4 overflow-x-auto shadow-sm shadow-[#00000050] rounded">
           <ul class="w-full flex flex-col gap-4 py-4 text-left text-sm text-primary-500 rtl:text-right dark:text-primary-400">
-            {this.state.status === true &&
-              this.state.charlas.map((charla, index) => {
-                return (
+          {this.state.status === true &&
+                    this.state.charlas.filter(charla => charla.idEstadoCharla === 2)
+                    .map((charla, index) => (
+                  
                   <>
                     <li
                       id={index}
@@ -285,8 +286,146 @@ export default class TodasCharlasPage extends Component {
                       </div>
                     </li>
                   </>
-                );
-              })}
+              ))}
+          </ul>
+        </section>
+        <div class="flex flex-col text-center w-full my-12">
+          <h2 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">
+            Charlas pasadas
+          </h2>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+            Nuestras charlas ya completadas
+          </p>
+        </div>
+        <section class="relative bg-neutral-50 p-2 px-4 overflow-x-auto shadow-sm shadow-[#00000050] rounded">
+          <ul class="w-full flex flex-col gap-4 py-4 text-left text-sm text-primary-500 rtl:text-right dark:text-primary-400">
+          {this.state.status === true &&
+                    this.state.charlas.filter(charla => charla.idEstadoCharla === 4)
+                    .map((charla, index) => (
+                  
+                  <>
+                    <li
+                      id={index}
+                      class="shadow-sm shadow-[#00000050]  rounded bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
+                    >
+                      <div class="whitespace-nowrap flex sm:flex-row flex-col-reverse gap-2 items-end sm:justify-between   px-6 py-4 font-medium text-gray-900 bg-primary-50">
+                        <div className="inline-flex  gap-1">
+                          <p className="bg-primary-300 font-bold p-2 px-4 rounded-full">
+                            {charla.descripcion}
+                          </p>
+                          <p className="bg-secondary-200 p-2 px-4 rounded-full">
+                            {getProvinciaNombre(charla.idProvincia)}
+                          </p>
+                          <p className="bg-secondary-200 p-2 px-4 rounded-full">
+                            {charla.modalidad}
+                          </p>
+                        </div>
+                        <NavLink to={"/login"}>
+                          <button class="shrink-0 text-white bg-secondary-500 border-0 py-2 px-6 focus:outline-none hover:bg-secondary-600 rounded text-lg">
+                            Solicitar Charla
+                          </button>
+                        </NavLink>
+                      </div>
+                      <div class="flex flex-row flex-wrap px-6 py-4 font-medium text-gray-900 ">
+                        <div className="flex  flex-wrap items-center gap-2 mb-4">
+                          {(() => {
+                            switch (charla.idEstadoCharla) {
+                              case 1:
+                                return <p></p>;
+                              case 2:
+                                return (
+                                  <p className="mb-2">
+                                    Estado:{" "}
+                                    <span className="bg-secondary-200 rounded-full p-1 px-4">
+                                      Disponible
+                                    </span>{" "}
+                                  </p>
+                                );
+                              case 3:
+                                return (
+                                  <p className="mb-2">
+                                    Estado:{" "}
+                                    <span className="bg-amber-100 rounded-full p-1 px-4">
+                                      En marcha
+                                    </span>{" "}
+                                  </p>
+                                );
+                              case 4:
+                                return (
+                                  <p className="shrink-0 mb-2">
+                                    Estado:{" "}
+                                    <span className="bg-accent-100 rounded-full p-1 px-4">
+                                      No disponible
+                                    </span>{" "}
+                                  </p>
+                                );
+                              case 5:
+                                return (
+                                  <p className="mb-2">
+                                    Estado:{" "}
+                                    <span className="bg-gray-500 rounded-full p-1 px-4">
+                                      Pasada
+                                    </span>{" "}
+                                  </p>
+                                );
+                              default:
+                                return null;
+                            }
+                          })()}
+                          <p className="block shrink-0 mb-2">
+                            Turno:{" "}
+                            <span className="bg-amber-100 rounded-full py-1 px-6">
+                              {charla.turno}
+                            </span>{" "}
+                          </p>
+                          <p className="block shrink-0 mb-2">
+  Tecnologías:{" "}
+  <span className="bg-amber-100 rounded-full py-1 px-6">
+    {getTecnologiaCharlas(charla.idCharla)}
+  </span>{" "}
+</p>
+                        </div>
+
+                        {/* <input
+                          type="datetime-local"
+                          disabled
+                          value={charla.fechaCharla}
+                        /> */}
+                        <div className="inline-flex w-full flex-row gap-2">
+                          {(() => {
+                            switch (charla.acreditacionLinkedIn) {
+                              case null:
+                                // return <p className="bg-primary-50 p-2 rounded">Sin comentarios</p>;
+                                return <></>;
+                              default:
+                                return (
+                                  // <p className="bg-primary-50 p-2 rounded">
+                                  //   {charla.acreditacionLinkedIn}{" "}
+                                  // </p>
+                                  <a href={charla.acreditacionLinkedIn}>
+                                    <User className=" hover:bg-primary-600 transition-all duration-300 bg-accent-300 stroke-primary-800 rounded-full w-12 h-12" />
+                                  </a>
+                                );
+                            }
+                          })()}
+                          {(() => {
+                            switch (charla.observaciones) {
+                              case null:
+                                // return <p className="bg-primary-50 p-2 rounded">Sin comentarios</p>;
+                                return <p></p>;
+                              default:
+                                return (
+                                  <p className="bg-primary-50 p-2 rounded ">
+                                    {charla.observaciones}{" "}
+                                  </p>
+                                );
+                            }
+                          })()}
+                        </div>
+                      </div>
+                    </li>
+                  </>
+              ))}
           </ul>
         </section>
       </>
